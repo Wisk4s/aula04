@@ -5,40 +5,38 @@ const users = [
         "name": "victor",
         "email": "vito@gmail.com",
         "password": "123",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     },
     {
         "name": "jose",
         "email": "jose@hotmail.com",
         "password": "123",
-        "token": "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     },
     {
         "name": "caio",
         "email": "caio@yahoo.com",
         "password": "123",
-        "token": "SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     }
 ]
 
 const getUserAuthenticated = (user) => {
     
-    let userAuth = {}
+    let userAuth = {} //armazena o userr (usuário) ou seja, o que está armazenado dentro da userAuth
     
     users.map(userr => {
-        if(user.email == userr.email && user.password == userr.password){
-           
-            console.log(userr);
+        if(user.email == userr.email && user.password == userr.password){ //verificando se o email do usuário é igual o email de login do usuario
             userAuth = userr 
             
         }
     });
-
+    console.log(userAuth);
     return userAuth
 }
 
 const getUsers = () =>{
-    return users;'  '
+    return users;
 }
 
 export { getUsers, getUserAuthenticated };
