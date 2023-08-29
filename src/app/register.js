@@ -1,43 +1,48 @@
 'use client'
-import Link from 'next/link';
 import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
-import styles from '../page.module.css'
 
-export default function Login() {
-  const [user, setUser] = useState({
+export default function Registro() {
+  const [registra, setRegistra] = useState({
+    name: '',
     email: '',
     password: ''
   });
   const { push, refresh } = useRouter();
 
-  const handlerLogin = async (e) => {
+  const handlerRegistro = async (e) => {
     e.preventDefault();
     try {
       await handlerAcessUser(user);
-      push('/pages/dashboard');
+      push('/pages/registro');
     } catch {
       refresh();
     }
   }
   return (
     <div>
-      <h1 className={styles.login}>Login</h1>
-      <form onSubmit={handlerLogin}>
+      <h1>Registro</h1>
+      <form onSubmit={handlerRegistro}>
+        <input
+          placeholder='Nome'
+          type="name"
+          onChange={(e) => { setRegistra({ ...registra, name: e.target.value }) }}>
+        </input>
+
         <input
           placeholder='E-mail'
           type="email"
-          onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
+          onChange={(e) => { setRegistra({ ...registra, email: e.target.value }) }}>
         </input>
+
         <input
           placeholder='Senha'
           type='password'
-          onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
+          onChange={(e) => { setRegistra({ ...registra, password: e.target.value }) }}>
         </input>
         <button>Entrar</button>
       </form>
-      <Link href="/pages/registro">Vá para a página de cadastro</Link>
     </div>
   )
 }
