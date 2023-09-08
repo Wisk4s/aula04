@@ -4,6 +4,7 @@ import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import styles from '../page.module.css'
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -13,6 +14,7 @@ export default function Login() {
   const { push, refresh } = useRouter();
 
   const handlerLogin = async (e) => {
+
     e.preventDefault();
     try {
       await handlerAcessUser(user);
@@ -21,6 +23,7 @@ export default function Login() {
       refresh();
     }
   }
+
   return (
     <div>
       <h1 className={styles.h1}>Login</h1>
@@ -39,7 +42,8 @@ export default function Login() {
         </input>
         <button className={styles.button}>Entrar</button>
       </form>
-      <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link href='/pages/register'>página de cadastro</Link></h3>
+      <h3 className={styles.h3}>Deseja alterar algum dado? <Link href="/pages/alter">Clique aqui</Link></h3>
+      <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link href='/pages/register'>página de registro</Link></h3>
     </div>
   )
 }
