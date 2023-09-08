@@ -6,7 +6,6 @@ export const middleware = (request) => {
 
     const token = request.cookies.get('token')?.value;
     const urlLogin = new URL('/', request.url);
-    const urlRegistro = new URL('/registro', request.url);
     const urlDashBoard = new URL ('/pages/dashboard', request.url) //"criação" da URL para o redirecionamento do usuário 
     const isTokenValidated = validateToken(token);
 
@@ -24,10 +23,17 @@ export const middleware = (request) => {
         }
     }
 
-    if (request.nextUrl.pathname === '/pages/registro') { //verifica se o usuário está na página de registro
-            return NextResponse.redirect(urlDashBoard); //redirecionando o usuário da página de "registro" para a página de "dashboard"
+    if (!isTokenValidated || !token) { //fazendo a validação se o usuário não possui o token -> última  requisição do trabalho
+        if (request.nextUrl.pathname === '/pages/register') { //verifica se o usuário está na página de "registro" ou na página "alter" -> última  requisição do trabalho
+            return NextResponse.redirect(urlLogin); //redirecionando o usuário da página de "registro" para a página de "dashboard" -> última  requisição do trabalho
     }
-        
+}
+
+    if (!isTokenValidated || !token) { //fazendo a validação se o usuário não possui o token -> última  requisição do trabalho
+        if (request.nextUrl.pathname === '/pages/alter') { //verifica se o usuário está na página de "registro" ou na página "alter" -> última  requisição do trabalho
+            return NextResponse.redirect(urlLogin); //redirecionando o usuário da página de "registro" para a página de "dashboard" -> última  requisição do trabalho
+    }
+}
 
     NextResponse.next();
 };
@@ -35,6 +41,6 @@ export const middleware = (request) => {
 
 
 export const config = {
-    matcher: ['/', '/pages/dashboard', '/pages/registro']
+    matcher: ['/', '/pages/dashboard', '/pages/register', '/pages/alter']
 };
 

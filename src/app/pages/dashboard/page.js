@@ -1,4 +1,6 @@
 import { getUsers } from "@/app/functions/handlerAcessAPI";
+import Link from 'next/link';
+import styles from '../../../page.module.css'
 
 export default async function Dashboard() {
    
@@ -13,7 +15,8 @@ export default async function Dashboard() {
                     <p>Nome ➡ {users.name}</p>
                 )}
             </div>
-            <h2>Deseja alterar algum dado? <Link href="/pages/alter">Clique aqui</Link></h2>
+            <h3 className={styles.h3}>Deseja alterar algum dado? <Link href='/pages/alter'>Clique aqui</Link></h3>
+            <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link href='/pages/register'>página de registro</Link></h3>
         </div>
     );
 };
