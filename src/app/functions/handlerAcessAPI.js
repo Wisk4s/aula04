@@ -39,4 +39,18 @@ const getUsers = () =>{
     return users;
 }
 
-export { getUsers, getUserAuthenticated };
+const getUserRegistered = (user) => {
+    
+    let newUserAuth = {} //armazena o userr (usuário) ou seja, o que está armazenado dentro da userAuth
+    
+    users.map(userr => {
+        if(user.name == userr.name && user.email == userr.email && user.password == userr.password){ //verificando se o email do usuário é igual o email de login do usuario
+            newUserAuth = userr 
+            
+        }
+    });
+    console.log(newUserAuth);
+    return newUserAuth
+}
+
+export { getUsers, getUserAuthenticated, getUserRegistered};
