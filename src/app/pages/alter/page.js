@@ -9,9 +9,11 @@ export default function Alterar() {
     email: '',
     password: ''
   });
+
   const { push, refresh } = useRouter();
 
   const handlerAlterar = async (e) => {
+
     e.preventDefault();
     try {
       await handlerAcessUser(user);
