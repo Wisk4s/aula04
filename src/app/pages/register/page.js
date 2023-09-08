@@ -15,7 +15,7 @@ export default function Registro() {
     e.preventDefault();
     try {
       await handlerAcessUser(user);
-      push('/pages/registro');
+      push('/pages/dashboard');
     } catch {
       refresh();
     }
