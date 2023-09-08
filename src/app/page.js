@@ -23,21 +23,23 @@ export default function Login() {
   }
   return (
     <div>
-      <h1 className={styles.login}>Login</h1>
+      <h1 className={styles.h1}>Login</h1>
       <form onSubmit={handlerLogin}>
         <input
+          className={styles.input}
           placeholder='E-mail'
           type="email"
           onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
         </input>
         <input
+          className={styles.input}
           placeholder='Senha'
           type='password'
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
-        <button>Entrar</button>
+        <button className={styles.button}>Entrar</button>
       </form>
-      <Link href="/pages/registro">Vá para a página de cadastro</Link>
+      <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link href='/pages/register'>página de cadastro</Link></h3>
     </div>
   )
 }

@@ -13,6 +13,7 @@ export default async function Dashboard() {
                     <p>Nome ➡ {users.name}</p>
                 )}
             </div>
+            <h2>Deseja alterar algum dado? <Link href="/pages/alter">Clique aqui</Link></h2>
         </div>
     );
 };
