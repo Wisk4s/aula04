@@ -7,16 +7,16 @@ export default async function Dashboard() {
     const chama = getUsers(); //criando uma const e chamando a function "getUsers()" lá do "handleAcessAPI"
 
     return (
-        <div>
-            <h1>Dashboard</h1>
+        <div className={styles.tudin}>
+            <h1 className={styles.h1}>Dashboard</h1>
 
-            <div>
+            <div className={styles.manos}>
                 {chama.map((users) => //mapeando o "banco de dados" e chamando apenas o nome do usuário 
-                    <p>Nome ➡ {users.name}</p>
+                    <p className={styles.usuario}>Nome ➡ {users.name}</p>
                 )}
             </div>
-            <h3 className={styles.h3}>Deseja alterar algum dado? <Link href='/pages/alter'>Clique aqui</Link></h3>
-            <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link href='/pages/register'>página de registro</Link></h3>
+            <h3 className={styles.h3}>Deseja alterar algum dado? <Link className={styles.link} href='/pages/alter'>Clique aqui</Link></h3>
+            <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link className={styles.link} href='/pages/register'>página de registro</Link></h3>
         </div>
     );
 };

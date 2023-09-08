@@ -25,9 +25,9 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div className={styles.tudo}>
       <h1 className={styles.h1}>Login</h1>
-      <form onSubmit={handlerLogin}>
+      <form className={styles.form} onSubmit={handlerLogin}>
         <input
           className={styles.input}
           placeholder='E-mail'
@@ -42,8 +42,8 @@ export default function Login() {
         </input>
         <button className={styles.button}>Entrar</button>
       </form>
-      <h3 className={styles.h3}>Deseja alterar algum dado? <Link href="/pages/alter">Clique aqui</Link></h3>
-      <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link href='/pages/register'>página de registro</Link></h3>
+      <h3 className={styles.h3}>Deseja alterar algum dado? <Link className={styles.link} href="/pages/alter">Clique aqui</Link></h3>
+      <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link className={styles.link} href='/pages/register'>página de registro</Link></h3>
     </div>
   )
 }
