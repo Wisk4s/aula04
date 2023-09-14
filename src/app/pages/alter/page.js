@@ -2,6 +2,7 @@
 import { useState } from "react";
 import handlerAcessUser from "../../functions/handlerAcess"
 import { useRouter } from "next/navigation";
+import styles from '../../../page.module.css';
 
 export default function Alterar() {
   const [altera, setAltera] = useState({
@@ -23,27 +24,30 @@ export default function Alterar() {
     }
   }
   return (
-    <div>
-      <h1>Alterar</h1>
-      <form onSubmit={handlerAlterar}>
+    <div class={styles.div}>
+      <h1 className={styles.h1}>Alterar</h1>
+      <form className={styles.form} onSubmit={handlerAlterar}>
         <input
+          className={styles.input}
           placeholder='Nome'
           type="name"
           onChange={(e) => { setAltera({ ...altera, name: e.target.value }) }}>
         </input>
 
         <input
+          className={styles.input}
           placeholder='E-mail'
           type="email"
           onChange={(e) => { setAltera({ ...altera, email: e.target.value }) }}>
         </input>
 
         <input
+          className={styles.input}
           placeholder='Senha'
           type='password'
           onChange={(e) => { setAltera({ ...altera, password: e.target.value }) }}>
         </input>
-        <button>Atualizar</button>
+        <button className={styles.button}>Atualizar</button>
       </form>
     </div>
   )
