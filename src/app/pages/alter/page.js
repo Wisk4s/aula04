@@ -3,6 +3,8 @@ import { useState } from "react";
 import handlerAcessUser from "../../functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import styles from '../../../page.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Alterar() {
   const [altera, setAltera] = useState({
@@ -22,7 +24,15 @@ export default function Alterar() {
     } catch {
       refresh();
     }
-  }
+
+    const success = true;
+
+    if (success) {
+      toast.success('Formulário enviado com sucesso!');
+    } else {
+      toast.error('Ocorreu um erro ao enviar o formulário.');
+    }
+  };
   return (
     <div class={styles.div}>
       <h1 className={styles.h1}>Alterar</h1>
@@ -49,6 +59,7 @@ export default function Alterar() {
         </input>
         <button className={styles.button}>Atualizar</button>
       </form>
+      <ToastContainer />
     </div>
   )
 }

@@ -3,6 +3,8 @@ import { useState } from "react";
 import handlerAcessUser from "../../functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import styles from '../../../page.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Registro() {
   const [registra, setRegistra] = useState({
@@ -20,7 +22,16 @@ export default function Registro() {
     } catch {
       refresh();
     }
-  }
+
+    const success = true;
+
+    if (success) {
+      toast.success('Formulário enviado com sucesso!');
+    } else {
+      toast.error('Ocorreu um erro ao enviar o formulário.');
+    }
+  };
+
   return (
     <div class={styles.div}>
       <h1 className={styles.h1}>Registro</h1>
@@ -47,6 +58,7 @@ export default function Registro() {
         </input>
         <button className={styles.button}>Entrar</button>
       </form>
+      <ToastContainer />
     </div>
   )
 }

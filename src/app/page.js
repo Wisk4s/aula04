@@ -4,7 +4,8 @@ import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import styles from '../page.module.css'
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -22,7 +23,17 @@ export default function Login() {
     } catch {
       refresh();
     }
-  }
+
+    const success = true;
+
+    if (success) {
+      toast.success('Formulário enviado com sucesso!');
+    } else {
+      toast.error('Ocorreu um erro ao enviar o formulário.');
+    }
+  };
+
+
 
   return (
     <div className={styles.tudo}>
@@ -44,6 +55,8 @@ export default function Login() {
       </form>
       <h3 className={styles.h3}>Deseja alterar algum dado? <Link className={styles.link} href="/pages/alter">Clique aqui</Link></h3>
       <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link className={styles.link} href='/pages/register'>página de registro</Link></h3>
+      <ToastContainer />
     </div>
   )
 }
+
