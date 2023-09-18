@@ -34,32 +34,34 @@ export default function Alterar() {
     }
   };
   return (
-    <div class={styles.div}>
-      <h1 className={styles.h1}>Alterar</h1>
-      <form className={styles.form} onSubmit={handlerAlterar}>
-        <input
-          className={styles.input}
-          placeholder='Nome'
-          type="name"
-          onChange={(e) => { setAltera({ ...altera, name: e.target.value }) }}>
-        </input>
+    <body className={styles.body}>
+      <div class={styles.div}>
+        <h1 className={styles.h1}>Alterar</h1>
+        <form className={styles.form} onSubmit={handlerAlterar}>
+          <input
+            className={styles.input}
+            placeholder='Nome'
+            type="name"
+            onChange={(e) => { setAltera({ ...altera, name: e.target.value }) }}>
+          </input>
 
-        <input
-          className={styles.input}
-          placeholder='E-mail'
-          type="email"
-          onChange={(e) => { setAltera({ ...altera, email: e.target.value }) }}>
-        </input>
+          <input
+            className={styles.input}
+            placeholder='E-mail'
+            type="email"
+            onChange={(e) => { setAltera({ ...altera, email: e.target.value }) }}>
+          </input>
 
-        <input
-          className={styles.input}
-          placeholder='Senha'
-          type='password'
-          onChange={(e) => { setAltera({ ...altera, password: e.target.value }) }}>
-        </input>
-        <button className={styles.button}>Atualizar</button>
-      </form>
-      <ToastContainer />
-    </div>
+          <input
+            className={styles.input}
+            placeholder='Senha'
+            type='password'
+            onChange={(e) => { setAltera({ ...altera, password: e.target.value }) }}>
+          </input>
+          <button className={styles.button}>Atualizar</button>
+        </form>
+        <ToastContainer />
+      </div>
+    </body>
   )
 }
