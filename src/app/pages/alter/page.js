@@ -39,6 +39,7 @@ export default function Alterar() {
         <h1 className={styles.h1}>Alterar</h1>
         <form className={styles.form} onSubmit={handlerAlterar}>
           <input
+            required
             className={styles.input}
             placeholder='Nome'
             type="name"
@@ -46,6 +47,7 @@ export default function Alterar() {
           </input>
 
           <input
+            required
             className={styles.input}
             placeholder='E-mail'
             type="email"

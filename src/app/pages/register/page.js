@@ -18,7 +18,7 @@ export default function Registro() {
     e.preventDefault();
     try {
       await handlerAcessUser(user);
-      push('/pages/dashboard');
+      push('/pages/register');
     } catch {
       refresh();
     }
@@ -38,6 +38,7 @@ export default function Registro() {
         <h1 className={styles.h1}>Registre-se</h1>
         <form className={styles.form} onSubmit={handlerRegistro}>
           <input
+            required
             className={styles.input}
             placeholder='Nome'
             type="name"
@@ -45,6 +46,7 @@ export default function Registro() {
           </input>
 
           <input
+            required
             className={styles.input}
             placeholder='E-mail'
             type="email"
@@ -52,6 +54,7 @@ export default function Registro() {
           </input>
 
           <input
+            required
             className={styles.input}
             placeholder='Senha'
             type='password'

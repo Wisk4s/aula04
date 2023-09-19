@@ -40,12 +40,14 @@ export default function Login() {
         <h1 className={styles.h1}>Login</h1>
         <form className={styles.form} onSubmit={handlerLogin}>
           <input
+            required
             className={styles.input}
             placeholder='E-mail'
             type="email"
             onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
           </input>
           <input
+            required
             className={styles.input}
             placeholder='Senha'
             type='password'
