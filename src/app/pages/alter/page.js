@@ -55,6 +55,7 @@ export default function Alterar() {
           </input>
 
           <input
+            required
             className={styles.input}
             placeholder='Senha'
             type='password'
