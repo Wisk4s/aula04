@@ -28,14 +28,14 @@ export default function Alterar() {
     const success = true;
 
     if (success) {
-      toast.success('Formulário enviado com sucesso!');
+      toast.success('Usuário alterado com sucesso!');
     } else {
       toast.error('Ocorreu um erro ao enviar o formulário.');
     }
   };
   return (
     <body className={styles.body}>
-      <div class={styles.div}>
+      <div className={styles.div}>
         <h1 className={styles.h1}>Alterar</h1>
         <form className={styles.form} onSubmit={handlerAlterar}>
           <input
