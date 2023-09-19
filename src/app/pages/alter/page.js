@@ -28,7 +28,7 @@ export default function Alterar() {
     const success = true;
 
     if (success) {
-      toast.success('Formulário enviado com sucesso!');
+      toast.success('Usuário alterado com sucesso!');
     } else {
       toast.error('Ocorreu um erro ao enviar o formulário.');
     }
