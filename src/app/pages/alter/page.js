@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from '../../../page.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 export default function Alterar() {
   const [altera, setAltera] = useState({
@@ -63,6 +64,8 @@ export default function Alterar() {
           </input>
           <button className={styles.button}>Atualizar</button>
         </form>
+        <h3 className={styles.h3}><Link className={styles.link} href='/pages/dashboard'>Clique aqui</Link> para retornar a página de Dashboard</h3>
+        <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link className={styles.link} href='/pages/register'>página de registro</Link></h3>
         <ToastContainer />
       </div>
     </body>
