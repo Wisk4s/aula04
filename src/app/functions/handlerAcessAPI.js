@@ -1,6 +1,8 @@
 'use server'
 
-const users = [
+const url = "https://aula-17-10-ashen.vercel.app"
+
+/*const users = [
     {
         "name": "marcelino",
         "email": "joao.santos@gmail.com",
@@ -25,11 +27,22 @@ const users = [
         "password": "123",
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     }
-]
+]*/
 
-const getUserAuthenticated = (user) => {
-    
-    let userAuth = {} //armazena o userr (usuário) ou seja, o que está armazenado dentro da userAuth
+const getUserAuthenticated = async (user) => {
+
+    const responseOfApi = await fetch(url + "/user/authenticated",
+        {
+            method: "POST",
+            headers: {"Content-type": "Application/json"},
+            body: JSON.stringify(user)
+        }
+    );
+
+    const userAuth = await responseOfApi.json();
+    return userAuth;
+}   
+    /*let userAuth = {} //armazena o userr (usuário) ou seja, o que está armazenado dentro da userAuth
     
     users.map(userr => {
         if(user.email == userr.email && user.password == userr.password){ //verificando se o email do usuário é igual o email de login do usuario
@@ -38,16 +51,16 @@ const getUserAuthenticated = (user) => {
         }
     });
     console.log(userAuth);
-    return userAuth
-}
+    return userAuth*/
+//}
 
 const getUsers = () =>{
-    return users;
+    //return users;
 }
 
 const getUserRegistered = (user) => {
     
-    let newUserAuth = {} //armazena o userr (usuário) ou seja, o que está armazenado dentro da userAuth
+    /*let newUserAuth = {} //armazena o userr (usuário) ou seja, o que está armazenado dentro da userAuth
     
     users.map(userr => {
         if(user.name == userr.name && user.email == userr.email && user.password == userr.password){ //verificando se o email do usuário é igual o email de login do usuario
@@ -56,7 +69,7 @@ const getUserRegistered = (user) => {
         }
     });
     console.log(newUserAuth);
-    return newUserAuth
+    return newUserAuth*/
 }
 
 export { getUsers, getUserAuthenticated, getUserRegistered};
