@@ -54,8 +54,15 @@ const getUserAuthenticated = async (user) => {
     return userAuth*/
 //}
 
-const getUsers = () =>{
-    //return users;
+const getUsers = async () =>{
+    const osManos = await fetch(url + "/users",
+    {
+        next: {revalidate: 10},
+    }
+);
+
+const userAuth = await osManos.json();
+return userAuth;
 }
 
 const getUserRegistered = (user) => {

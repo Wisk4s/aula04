@@ -4,7 +4,7 @@ import styles from '../../../page.module.css';
 
 export default async function Dashboard() {
 
-    const chama = getUsers(); //criando uma const e chamando a function "getUsers()" lá do "handleAcessAPI"
+    const chama = await getUsers(); //criando uma const e chamando a function "getUsers()" lá do "handleAcessAPI"
 
     return (
         <body className={styles.body}>

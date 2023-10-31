@@ -2,12 +2,12 @@
 import { NextResponse } from "next/server";
 import { validateToken } from "./app/functions/validateToken";
 
-export const middleware = (request) => {
+export const middleware = async (request) => {
 
     const token = request.cookies.get('token')?.value;
     const urlLogin = new URL('/', request.url);
     const urlDashBoard = new URL ('/pages/dashboard', request.url) //"criação" da URL para o redirecionamento do usuário 
-    const isTokenValidated = validateToken(token);
+    const isTokenValidated = await validateToken(token); //deixando a função assíncrona 
 
 
     if (!isTokenValidated || !token) {
