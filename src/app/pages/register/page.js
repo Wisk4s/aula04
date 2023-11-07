@@ -15,6 +15,8 @@ export default function Registro() {
   });
   const { push, refresh } = useRouter();
 
+  
+
   const handlerRegistro = async (e) => {
     e.preventDefault();
     try {
