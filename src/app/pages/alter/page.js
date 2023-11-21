@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import handlerAcessUser from "../../functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import styles from '../../../page.module.css';
@@ -15,6 +15,14 @@ export default function Alterar() {
   });
 
   const { push, refresh } = useRouter();
+
+  useEffect(() => {
+    const findUser = async () => {
+      const userFind = await getUser(params.id);
+      setUser({ ...user, name: userFind.name, email: userFind.email });
+    }
+    findUser();
+}, [])
 
   const handlerFormSubmit = async (event) => {
     event.preventDefault();
