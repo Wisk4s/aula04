@@ -16,24 +16,16 @@ export default function Alterar() {
 
   const { push, refresh } = useRouter();
 
-  const handlerAlterar = async (e) => {
+  const handlerFormSubmit = async (event) => {
+    event.preventDefault();
+    await updateUser(user, params.id);
+    await new Promise((resolve) => {
+      toast.success("Usuário alterado com sucesso");
+      setTimeout(resolve, 5000);
+    });
+    return push("pages/dashboard");
+  }
 
-    e.preventDefault();
-    try {
-      await handlerAcessUser(user);
-      push('/pages/alterar');
-    } catch {
-      refresh();
-    }
-
-    const success = true;
-
-    if (success) {
-      toast.success('Usuário alterado com sucesso!');
-    } else {
-      toast.error('Ocorreu um erro ao enviar o formulário.');
-    }
-  };
   return (
     <body className={styles.body}>
       <div className={styles.div}>
