@@ -22,7 +22,7 @@ try{
 }  
 
 const postUser = async (user) => {
-    try{
+    try{ 
         const responseOfApi = await fetch(url + "/user", {
             method: 'POST',
             headers: { 'Content-Type': 'Application/json' },
