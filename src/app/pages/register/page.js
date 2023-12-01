@@ -60,7 +60,6 @@ export default function Registro() {
           <button className={styles.button}>Entrar</button>
         </form>
         <h3 className={styles.h3}><Link className={styles.link} href='/pages/dashboard'>Clique aqui</Link> para retornar a página de Dashboard</h3>
-        <h3 className={styles.h3}>Deseja alterar algum dado? <Link className={styles.link} href="/pages/alter">Clique aqui</Link></h3>
         <ToastContainer />
       </div>
     </body>
