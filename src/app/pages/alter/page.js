@@ -65,7 +65,7 @@ export default function Alterar() {
           <button className={styles.button}>Atualizar</button>
         </form>
         <h3 className={styles.h3}><Link className={styles.link} href='/pages/dashboard'>Clique aqui</Link> para retornar a página de Dashboard</h3>
-        <h3 className={styles.h3}>Não tem uma conta? Vá para a <Link className={styles.link} href='/pages/register'>página de registro</Link></h3>
+        <h3 className={styles.h3}>Não tem uma conta? Crie uma na <Link className={styles.link} href='/pages/register'>página de registro</Link></h3>
         <ToastContainer />
       </div>
     </body>

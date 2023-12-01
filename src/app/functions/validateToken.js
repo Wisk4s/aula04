@@ -1,10 +1,11 @@
 //import { jwtVerify } from "jose";
+import { decode } from "jsonwebtoken";
 const validateToken = async (token)=>{
     //const meuToken = "UAHSD8O71YG87FGHQ8970FG10872GR08712FR78";
 
     try {
-        const isTokenValid = decode(token)
-        console.log(isTokenValid)
+        const isTokenValid = await decode(token);
+
         if(isTokenValid){
             return true;
         }

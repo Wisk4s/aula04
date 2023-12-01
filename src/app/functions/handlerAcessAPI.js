@@ -22,6 +22,7 @@ try{
 }  
 
 const postUser = async (user) => {
+    console.log(JSON.stringify(user))
     try{ 
         const responseOfApi = await fetch(url + "/user", {
             method: 'POST',
@@ -29,26 +30,27 @@ const postUser = async (user) => {
             body: JSON.stringify(user)
         });
         const userSave = await responseOfApi.json();
+        console.log(userSave)
         return userSave;
-    }catch{
+    }catch (err){
+        console.log("error:" +err)
         return null;
     }
 }
 
 const getUsers = async () =>{
+    const osManos = await fetch(url + "/users", {
+        next: {revalidate: 5},
+    });
 
-    const osManos = await fetch(url + "/users",
-    {
-        next: {revalidate: 10},
-    }
-);
+    const userAuth = await osManos.json();
+    return userAuth;
+};
 
-const userAuth = await osManos.json();
-return userAuth;
-}
 
-const getUserRegistered = (user) => {
 
+const getUserRegistered = async (user) => {
+    
 }
 
 export { getUsers, getUserAuthenticated, postUser};
